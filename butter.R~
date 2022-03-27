@@ -1,0 +1,42 @@
+#
+# Butterworth filter
+#
+require(data.table)
+require(signal)
+print(getwd())
+
+RISEbutter <- function(filename1, filename2) {
+
+x1 <- 3
+x2 <- 0.1
+x3 <- 3
+
+	print(paste("file1:", filename1))
+	d1 <- fread(filename1)
+	print(head(d1))
+
+	print(paste("file2:", filename2))
+	d2 <- fread(filename2)
+	print(head(d2))
+
+
+	bf <- butter(x1, x2)
+	z <- filter(bf, d1$S1)
+	plot(d1$T, d1$S, type="l", col="blue")
+	lines(z, col = "red")
+	bf <- butter(x1, x3)
+	plot(d1$T, d1$S, type="l", col="blue")
+	lines(z, col = "red")
+
+
+#	bf <- butter(x1, x2)
+#	z <- filter(bf, d2$S1)
+#	plot(d2$T, d2$S, type="l", col="blue")
+#	lines(z, col = "red")
+#	bf <- butter(x1, x3)
+#	plot(d2$T, d2$S, type="l", col="blue")
+#	lines(z, col = "red")
+
+	
+
+}

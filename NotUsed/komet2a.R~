@@ -1,0 +1,16 @@
+require(data.table)
+require(roll)
+
+
+
+source("/Users/ianmarsh/L/LCM/COMET2A/read_data.R")
+source("diffs.R")
+source("gilbert.R")
+source("run_gilbert.R")
+source("plot_gilbert.R")
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+  # Plot fft
+  filename <- paste0("Plots/WithOsc/FFT/with_osc_fft", i, ".pdf")
+  pdf(filename)
+    plot(fft(signals), col="blue")
+  dev.off()
+
+
+
+  filename <- paste0("Plots/WithoutOsc/FFT/without_osc_fft", i, ".pdf")
+  pdf(filename)
+    plot(fft(signals), col="blue")
+  dev.off()
+
+

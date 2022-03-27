@@ -1,0 +1,8 @@
+x <- 10
+y <- 9952
+z <- 100
+
+for (i in seq(x, y, z) {
+  gilbert(diffs_signs, 3001, 4000)
+  
+}

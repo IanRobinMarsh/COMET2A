@@ -1,0 +1,29 @@
+# another example
+x=seq(-4,6,length.out=10)
+x1=dnorm(x, 0, 1)
+x2=dnorm(x,2,2)
+
+# Find points where x1 is above x2.
+above <- x1 > x2
+
+# Points always intersect when above=TRUE, then FALSE or reverse
+intersect.points <- which(diff(above) != 0)
+
+# Find the slopes for each line segment.
+x1.slopes <- x1[intersect.points+1] - x1[intersect.points]
+x2.slopes <- x2[intersect.points+1] - x2[intersect.points]
+
+# Find the intersection for each segment.
+x.points <- x[intersect.points] + ((x2[intersect.points] - x1[intersect.points]) / (x1.slopes-x2.slopes))
+y.points <- x1[intersect.points] + (x1.slopes*(x.points-x[intersect.points]))
+
+# Joint points
+joint.points <- which(x1 == x2)
+x.points <- c(x.points, joint.points)
+y.points <- c(y.points, x1[joint.points])
+
+# Plot points 
+# length(x); length(x1)
+plot(x, x1,type='l')
+lines(x, x2,type='l',col='red')
+points(x.points,y.points,col='blue')library(plotly)

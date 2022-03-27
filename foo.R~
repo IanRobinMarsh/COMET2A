@@ -1,0 +1,6 @@
+require(data.table)
+
+myfun <-function(filename){
+ d<-fread(filename)
+ print(head(d))
+ }

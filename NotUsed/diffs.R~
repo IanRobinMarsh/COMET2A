@@ -1,0 +1,32 @@
+ndiffs <- 10
+
+WithOscS1 <- WithOsc$S1
+WithOscT1 <- WithOsc$T1
+WithOscO1 <- WithOsc$O1
+
+
+# ts.plot(diffs)
+# lines(zeros, col="red")
+# lines(WithOscO1, col="blue")
+# ts.plot(WithOsc$S1, col="black"); points(roll_mean(WithOsc$S1, width=50), col="red", cex=0.1)
+
+WithOscS1 <- WithOsc$S1
+WithOscT1 <- WithOsc$T1
+WithOscO1 <- WithOsc$O1
+
+
+diffs <- diff(WithOscS1)
+zeros <- rep(0, length(WithOscS1))
+
+
+# ts.plot(diffs)
+# lines(zeros, col="red")
+# lines(WithOscO1, col="blue")
+# ts.plot(WithOsc$S1, col="black"); points(roll_mean(WithOsc$S1, width=50), col="red", cex=0.1)
+
+
+
+diffs <- (WithOsc$S1 - roll_mean(WithOsc$S1, width=ndiffs))
+
+
+

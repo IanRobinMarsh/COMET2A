@@ -1,0 +1,32 @@
+#
+# Butterworth filter
+#
+require(signal, quietly=T, warn.conflicts=F)
+require(data.table, quietly=T, warn.conflicts=F)
+
+d1 <- fread("Data/WithOsc/with_osc1.csv")
+bf <- butter(3, 0.1)
+z <- filter(bf, d1$S1)
+
+plot(d1$T, d1$S, type="l", col="blue")
+lines(z, col = "red")
+
+bf <- butter(3, 0.01)
+plot(d1$T, d1$S, type="l", c\
+ol="blue")
+lines(z, col = "red")
+
+
+
+#Labelcols <- function(mydata, n) {
+#  strings <- rep(c("T", "S", "O"), n)
+#  digits  <- rep(c(1:n), each = 3)
+# names(mydata) <- paste0(strings, digits)
+
+#  mydata
+#  return(mydata)
+#}
+
+# Misc
+# str(osc) /* structure */
+# d <- as.array(osc$signalsWithoutOscillations[2])
