@@ -1,2 +1,2 @@
 # COMET2A
-Oscillation detection
+Oscillation detection project
