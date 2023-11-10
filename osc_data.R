@@ -2,10 +2,10 @@
 # Assume we are at the top level.
 #
 # 
-require(R.matlab, quietly=T, warn.conflicts=F)
-require(data.table, quietly=T, warn.conflicts=F)
-require(signal, quietly=T, warn.conflicts=F)
-require(swfscMisc)
+require(R.matlab, quietly=F, warn.conflicts=F)
+require(data.table, quietly=F, warn.conflicts=F)
+require(signal, quietly=F, warn.conflicts=F)
+require(swfscMisc, quietly=F, warn.conflicts=F)
 
 osc <- readMat('./oscillationDataLCM.mat')
 

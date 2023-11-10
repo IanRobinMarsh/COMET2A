@@ -4,7 +4,7 @@
 # 	1. Select a random sequence.
 # 	2. Put it through our suite of tests
 # 	3. Build up a metric of guesses functional style "lapply(thisSeq, Osctests)"
-# 	4. Output it
+# 	4. Output 
 # 	5. Run and compare Bool and quantity (in and out of envelope)
 # 	6. Adjust heuristics / values
 
@@ -18,15 +18,11 @@ require(roll, quietly=T, warn.conflicts=F)
 require(dplyr, quietly=T, warn.conflicts=F)
 require(gsignal, quietly=T, warn.conflicts=F)
 require(R.matlab, quietly=T, warn.conflicts=F)
-require(data.table, quietly=T, warn.conflicts=F)
-require(signal, quietly=T, warn.conflicts=F)
 require(swfscMisc, quietly=T, warn.conflicts=F)
-# require(signal, quietly=T, warn.conflicts=F)
+require(signal, quietly=T, warn.conflicts=F)
 
+source("./read_data.R")
 
-
-
-source("/Users/ianmarsh/L/LCM/COMET2A/read_data.R")
 
 
 # 	Gilbert crossing
@@ -56,16 +52,16 @@ print(paste("selected sequence", num))
 # 	Import (unknown) signal
 #
 if (num <= 20) {
-		thisSeqSig <- WithOsc$num
-		thisSeqOsc <- WithOsc$num
-		thisSeqTim <- WithOsc$num 
-	} else if (num > 20) {
-		thisSeqSig <- WithoutOsc$num
-		thisSeqOsc <- WithoutOsc$num
-		thisSeqTim <- WithoutOsc$num 
-	} else {
-		print("bad sequence.")
-	}
+	thisSeqSig <- WithOsc$num
+	thisSeqOsc <- WithOsc$num
+	thisSeqTim <- WithOsc$num 
+} else if (num > 20) {
+	thisSeqSig <- WithoutOsc$num
+	thisSeqOsc <- WithoutOsc$num
+	thisSeqTim <- WithoutOsc$num 
+} else {
+	print("bad sequence.")
+}
 
 
 MyTest <- function( ) {
@@ -76,8 +72,8 @@ MyTest <- function( ) {
 #	Run sequence through implemented tests 
 #
 for (thisTest in OscTests) {
-#	print(paste("This test", thisTest))
-   	(inSeq, outSeq) <- Mytest(ThisSeq, thisTest)
+	print(paste("This test", thisTest))
+#   	(inSeq, outSeq) <- Mytest(thisTest)
 
    	# Check tests
    	if ((thisSeq == "with_osc") && (between(x=num, left=1, right=20))) {
