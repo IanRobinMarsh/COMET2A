@@ -1,3 +1,12 @@
+# 	Gilbert crossing
+#
+# 	source("diffs.R")
+# 	source("gilbert.R")
+# 	source("run_gilbert.R")
+# 	source("plot_gilbert.R")
+
+
+
 gilbert <- function(vec, start, end) {
 
   vec <- na.omit(vec)
