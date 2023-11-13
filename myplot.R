@@ -1,0 +1,5 @@
+ts.plot(data)
+lines(zeros, col="red")
+lines(data, col="blue")
+ts.plot(data, col="black")
+points(roll_mean(data, width=50), col="red", cex=0.1)
