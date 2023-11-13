@@ -1,32 +1,19 @@
-ndiffs <- 10
+diffs <- function(sequence, no, ndiffs) {
 
-WithOscS1 <- WithOsc$S1
-WithOscT1 <- WithOsc$T1
-WithOscO1 <- WithOsc$O1
+      	 time <- sequence$T$no
+	 seq <- sequence$S$no
+	 osc <- sequence$O$no
+	 
+       	 
 
+	 diffs <- diff(seq)
+	 zeros <- rep(0, length(seq))
+	 diffs10 <- seq - roll_mean(seq, width=ndiffs)
+	 # myplot(diffs)
+	 
+	 return(diffs$ndiffs)
+}
 
-# ts.plot(diffs)
-# lines(zeros, col="red")
-# lines(WithOscO1, col="blue")
-# ts.plot(WithOsc$S1, col="black"); points(roll_mean(WithOsc$S1, width=50), col="red", cex=0.1)
-
-WithOscS1 <- WithOsc$S1
-WithOscT1 <- WithOsc$T1
-WithOscO1 <- WithOsc$O1
-
-
-diffs <- diff(WithOscS1)
-zeros <- rep(0, length(WithOscS1))
-
-
-# ts.plot(diffs)
-# lines(zeros, col="red")
-# lines(WithOscO1, col="blue")
-# ts.plot(WithOsc$S1, col="black"); points(roll_mean(WithOsc$S1, width=50), col="red", cex=0.1)
-
-
-
-diffs <- WithOsc$S1 - roll_mean(WithOsc$S1, width=ndiffs)
-
+source("main.R")
 
 
