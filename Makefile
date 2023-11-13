@@ -4,14 +4,9 @@
 RSCRIPT = Rscript
 
 # Define scripts and their outputs
-SCRIPT1 = script1.R
+SCRIPT1 = diffs.R
 OUTPUT1 = output1.csv
 
-SCRIPT2 = script2.R
-OUTPUT2 = output2.csv
-
-SCRIPT3 = komet2a.R
-OUTPUT3 = output3.csv
 
 # Default target
 all: $(OUTPUT3)
