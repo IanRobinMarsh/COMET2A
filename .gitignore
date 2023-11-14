@@ -42,3 +42,6 @@ vignettes/*.pdf
 # produced by MacOS
 .DS_Store
 *~
+
+# plots
+/Plots/

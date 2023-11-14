@@ -8,24 +8,33 @@
 # 4. Collate replies
 # 5. Examine
 
+assign("last.warning", NULL)
 source("./requires.R")
 source("./read_data.R")
-
-
-
 
 #
 # Implemented tests
 #
-OscTests <- c("heuristic", "crossing", "wavelet", "deep_learning", "fft")
+#OscTests <- c("heuristic", "crossing", "wavelet", "deep_learning", "fft")
 
 
 #
 # Choose a random sequence 1-27 (1-20 with Oscillations and 21-28 Without)
-# 
-sequence <-  sample(1:28, 28, replace=F)
-# print(paste("selected sequence", sequence))
+#
+no <- 27
+sequence <- sample(1:no, no, replace=F)
+#plot(hist(sequence, breaks=no+2, xlim=c(0,no+2)))
+cat("\nSequence\n--------\n")
+str <- paste(sequence, sep=" ", collapse=" ")
+cat(str)
+cat("\n\n")
 
+# different each time this runs
+first <- sequence[1]
+
+
+paste("WithOsc","S",first, sep="")
+#plot(WithOsc$S1)
 
 #diffs(WithOsc, 10, 10)
 #diffs(WithoutOsc, 10, 10)

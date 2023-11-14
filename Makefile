@@ -5,11 +5,11 @@ RSCRIPT = Rscript
 
 # Define scripts and their outputs
 SCRIPT1 = diffs.R
-OUTPUT1 = output1.csv
+OUTPUT1 = Plots/diffs.pdf
 
 
 # Default target
-all: $(OUTPUT3)
+#all: $(OUTPUT3)
 
 # Rules to produce outputs
 $(OUTPUT1): $(SCRIPT1)
