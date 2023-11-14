@@ -33,8 +33,9 @@ cat("\n\n")
 first <- sequence[1]
 
 
-paste("WithOsc","S",first, sep="")
-#plot(WithOsc$S1)
+foo <- paste('WithOsc$S', first, sep='')
+print(foo)
+plot(foo)
 
 #diffs(WithOsc, 10, 10)
 #diffs(WithoutOsc, 10, 10)
