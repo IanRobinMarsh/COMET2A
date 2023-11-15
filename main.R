@@ -12,30 +12,41 @@ assign("last.warning", NULL)
 source("./requires.R")
 source("./read_data.R")
 
-#
-# Implemented tests
-#
-#OscTests <- c("heuristic", "crossing", "wavelet", "deep_learning", "fft")
-
 
 #
-# Choose a random sequence 1-27 (1-20 with Oscillations and 21-28 Without)
+# Choose a random sequence with oscillations (1-20)
 #
-no <- 27
+no <- 20
 sequence <- sample(1:no, no, replace=F)
-#plot(hist(sequence, breaks=no+2, xlim=c(0,no+2)))
+seq <- paste(sequence, sep=" ", collapse=" ")
 cat("\nSequence\n--------\n")
-str <- paste(sequence, sep=" ", collapse=" ")
-cat(str)
+cat(seq)
 cat("\n\n")
 
-# different each time this runs
+sel <- sequence[1]
+time <- WithOsc[, sel, ]
+seq  <- WithOsc[, sel+1, ]
+osc  <- WithOsc[, sel+2, ]
+
+
+
+
+
+
+#  Without Oscillations (1-7)
+no <- 7
+sequence <- sample(1:no, no, replace=F)
+seq <- paste(sequence, sep=" ", collapse=" ")
+cat("\nSequence\n--------\n")
+cat(seq)
+cat("\n\n")
+
+
 first <- sequence[1]
+time <- WithoutOsc[, first]
+seq  <- WithoutOsc[, first + 1]
+osc  <- WithoutOsc[, first + 2]
 
-
-foo <- paste('WithOsc$S', first, sep='')
-print(foo)
-plot(foo)
 
 #diffs(WithOsc, 10, 10)
 #diffs(WithoutOsc, 10, 10)
