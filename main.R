@@ -1,52 +1,33 @@
 #
 # Top level script.
 #
-# 0. This script does very little. Invoke the others, "Rscript diffs.R"
-# 1. Select a random sequence of data (1-21)
+# 0. This script does very little. Invoke the others, e.g. "Rscript diffs.R"
+# 1. Select a random sequence of data (1-20 and 1-7)
 # 2. Put it through our suite of tests
 # 3. Construct answers using functional style "lapply(thisSeq, Osctests)"
 # 4. Collate replies
-# 5. Examine
+# 5. Report which methods work and which datasets
 
 assign("last.warning", NULL)
 source("./requires.R")
 source("./read_data.R")
 
 
-#
-# Choose a random sequence with oscillations (1-20)
-#
-no <- 20
-sequence <- sample(1:no, no, replace=F)
-seq <- paste(sequence, sep=" ", collapse=" ")
-cat("\nSequence\n--------\n")
-cat(seq)
-cat("\n\n")
 
+
+source("./pretty-print.R")
+
+# take first
 sel <- sequence[1]
-time <- WithOsc[, sel, ]
-seq  <- WithOsc[, sel+1, ]
-osc  <- WithOsc[, sel+2, ]
+print(paste("Current series:", sel))
 
 
+time <- WithOsc[, paste("T", sep="", sel), with=FALSE]
+seq  <- WithOsc[, paste("S", sep="", sel), with=FALSE]
+osc  <- WithOsc[, paste("O", sep="", sel), with=FALSE]
 
-
-
-
-#  Without Oscillations (1-7)
-no <- 7
-sequence <- sample(1:no, no, replace=F)
-seq <- paste(sequence, sep=" ", collapse=" ")
-cat("\nSequence\n--------\n")
-cat(seq)
-cat("\n\n")
-
-
-first <- sequence[1]
-time <- WithoutOsc[, first]
-seq  <- WithoutOsc[, first + 1]
-osc  <- WithoutOsc[, first + 2]
-
+plot(time$T10, seq$S10, type="lines")
+lines(time$T10, osc$O10, type="lines", col="red")
 
 #diffs(WithOsc, 10, 10)
 #diffs(WithoutOsc, 10, 10)
