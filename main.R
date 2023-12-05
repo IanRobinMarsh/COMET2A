@@ -11,10 +11,6 @@
 assign("last.warning", NULL)
 source("./requires.R")
 source("./read_data.R")
-
-
-
-
 source("./pretty-print.R")
 
 # take first
@@ -23,14 +19,14 @@ print(paste("Current series:", sel))
 
 
 time <- WithOsc[, paste("T", sep="", sel), with=FALSE]
-seq  <- WithOsc[, paste("S", sep="", sel), with=FALSE]
-osc  <- WithOsc[, paste("O", sep="", sel), with=FALSE]
+print(time)
+#seq  <- WithOsc[, paste("S", sep="", sel), with=FALSE]
+#osc  <- WithOsc[, paste("O", sep="", sel), with=FALSE]
+ 
+plot(time$T$sel, seq$S$sel, type="lines")
+#lines(time$T$sel, osc$O$sel, type="lines", col="red")
 
-plot(time$T10, seq$S10, type="lines")
-lines(time$T10, osc$O10, type="lines", col="red")
 
-#diffs(WithOsc, 10, 10)
-#diffs(WithoutOsc, 10, 10)
 
 
 
